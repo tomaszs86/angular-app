@@ -1,15 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core'
+import { Router } from '@angular/router'
+import { EventService } from "app/event/event-service";
 
 @Component({
   selector: 'app-event-create',
   templateUrl: './event-create.component.html',
   styleUrls: ['./event-create.component.css']
 })
-export class EventCreateComponent implements OnInit {
+export class EventCreateComponent {
 
-  constructor() { }
+  isDirty:boolean = true
+  event:any = { location: { } }
 
-  ngOnInit() {
+  constructor(private router: Router, private eventService: EventService) {
+  }
+
+  saveEvent(formValues) {
+   this.eventService.saveEvent(formValues).subscribe(event => {
+    this.router.navigate(['/events']) 
+    this.isDirty = false
+   })
+  }
+
+  cancel() {
+    this.router.navigate(['/events'])
   }
 
 }
