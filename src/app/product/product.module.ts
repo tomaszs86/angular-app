@@ -8,11 +8,13 @@ import { ProductFilterPipe } from './product-filter.pipe';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductCreateComponent } from './product-create/product-create.component';
+import { SharedModule } from "app/shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
-    ProductRoutingModule
+    ProductRoutingModule,
+    SharedModule
   ],
   declarations: [ProductListComponent, ProductFilterPipe, ProductDetailsComponent, ProductEditComponent, ProductCreateComponent],
   providers: [ProductService]

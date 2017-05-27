@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from "app/product/product.service";
+import { Product } from "app/product/product";
 
 @Component({
   selector: 'app-product-list',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+  pageTitle: string = 'Products';
+  listFilter: string;
+  
+  products: Product[];
+  errorMessage: string;
 
-  ngOnInit() {
+  constructor(private productService: ProductService) { }
+
+  ngOnInit(): void {
+        this.productService.getProducts()
+                .subscribe(products => this.products = products,
+                           error => this.errorMessage = <any>error);
+  }
+
+  public onRatingClicked(message: string): void {
+        this.pageTitle = 'Products: ' + message;
   }
 
 }
