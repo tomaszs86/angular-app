@@ -1,0 +1,37 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Users
+    </div>
+    
+    <div class='panel-body'>
+
+        <div class="row">
+            <a class="btn btn-primary" style="width:80px;margin-left:10px" 
+           [routerLink]="['/user/create']">
+            Create
+        </a>
+        </div>
+
+        <div class='table-responsive'>
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Is active</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users | async">
+                        
+                        <td><a [routerLink]="['/user/edit/', user.id]">
+                            {{user.username}}
+                        </a></td>
+                        <td>{{ user.isActive }}</td>
+                        <td>{{ user.created }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
