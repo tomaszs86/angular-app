@@ -1,3 +1,81 @@
-<p>
-  user-create works!
-</p>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Create
+    </div>
+
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <fieldset>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="userName">Username</label>
+
+                    <div class="col-md-8">
+                        <input type="text" 
+                        [(ngModel)]="username" 
+                        name="userName" 
+                        required #usrname="ngModel"
+                        class="form-control"
+                        placeholder="Username (required)"
+                        >
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="isActive">Is Active</label>
+
+                    <div class="col-md-8">
+                        <input type="checkbox" 
+                        [(ngModel)]="isActive" 
+                        name="isActive" 
+                        required #isact="ngModel"
+                        class="form-control"
+                        placeholder="Username (required)"
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="created">Created</label>
+
+                    <div class="col-md-8">
+                        <input type="text" 
+                        [(ngModel)]="created" 
+                        name="created" 
+                        required #createdDate="ngModel"
+                        class="form-control"
+                        placeholder="Created date (required)"
+                        >
+                    </div>
+                </div>
+                
+                
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+
+                        <span>
+                            <button class="btn btn-primary"
+                                    type="submit"
+                                    [disabled]="!usrname.valid || !isact.valid || !createdDate.valid"
+                                    (click)="createUser()"
+                                    style="width:80px;margin-right:10px">
+                                Save
+                            </button>
+                        </span>
+
+                        <span>
+                            <a class="btn btn-default"
+                               style="width:80px"
+                               [routerLink]="['/users']">
+                                Cancel
+                            </a>
+                        </span>
+      
+                     </div>
+                </div>
+            </fieldset>
+        </form>
+    <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+    </div>
+
+</div>
