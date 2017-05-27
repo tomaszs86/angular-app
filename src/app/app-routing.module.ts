@@ -4,6 +4,7 @@ import { ProductModule } from "app/product/product.module";
 import { HomeComponent } from "app/home/home.component";
 import { UserModule } from "app/user/user.module";
 import { CartModule } from "app/cart/cart.module";
+import { EventModule } from "app/event/event.module";
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), ProductModule, UserModule, CartModule],
+  imports: [RouterModule.forRoot(routes), ProductModule, UserModule, CartModule, EventModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
