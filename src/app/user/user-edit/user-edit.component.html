@@ -1,3 +1,77 @@
-<p>
-  user-edit works!
-</p>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Edit
+    </div>
+
+    <div class="panel-body">
+
+        <form class="form-horizontal">
+
+            <fieldset>
+
+                <div class="form-group">
+                    
+                    <label class="col-md-2 control-label" for="Username">Username</label>
+
+                    <div class="col-md-8">
+                        
+                        <input class="form-control" id="email" type="text" placeholder="Username (required)" 
+                               [(ngModel)]="user.username" name="username" required #em="ngModel" />
+                        <span [hidden]="em.valid || em.pristine" class="alert callout">
+                                username is required
+                        </span>
+
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    
+                    <label class="col-md-2 control-label" for="IsActive">Is active</label>
+
+                    <div class="col-md-8">
+                        
+                        <input class="form-control" id="isActive" type="checkbox" placeholder="IsActive (required)" 
+                               [(ngModel)]="user.isActive" name="isActive" required #isact="ngModel">
+                        <span [hidden]="isact.valid || isact.pristine" class="alert callout">
+                                IsActive is required
+                        </span>
+                        
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    
+                    <label class="col-md-2 control-label" for="IsActive">Is active</label>
+
+                    <div class="col-md-8">
+                        
+                        <input class="form-control" id="Created" type="text" placeholder="Created (required)" 
+                               [(ngModel)]="user.created" name="created" required #creat="ngModel">
+                        <span [hidden]="creat.valid || creat.pristine" class="alert callout">
+                                Created is required
+                        </span>
+                        
+                    </div>
+                </div>
+                
+                <div class="form-group">
+
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                             <a class="success btn btn-default" (click)="update(user)">Update</a>
+                        </span>
+
+                        <span>
+                            <a class="btn btn-default" style="width:80px" [routerLink]="['/users']">
+                                Cancel
+                            </a>
+                        </span>
+
+                     </div>
+                </div>
+            </fieldset>
+        </form>
+        <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+    </div>
+
+</div>
