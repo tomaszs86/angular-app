@@ -1,0 +1,20 @@
+<div class="row" *ngFor="let session of visibleSessions">
+  <div>
+
+    <app-collapse>
+
+      <div title>
+        {{session.name}}
+        <i *ngIf="session.voters.length > 1" class="glyphicon glyphicon-fire" style="color:red"></i>
+      </div>
+
+      <div body>
+        <h6>{{session.presenter}}</h6>
+        <span>Duration: {{session.duration | duration }}</span><br />
+        <span>Level: {{session.level}}</span>
+        <p>{{session.abstract}}</p>
+      </div>
+      
+      </app-collapse>
+  </div>
+</div>

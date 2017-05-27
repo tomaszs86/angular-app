@@ -5,6 +5,8 @@ import { StarComponent } from './star/star.component';
 import {Routes, RouterModule} from '@angular/router';
 import { ShoppingCartService } from "app/shared/shopping-cart-service";
 import { MenuComponent } from './menu/menu.component';
+import { DurationPipe } from './duration.pipe';
+import { CollapseComponent } from './collapse/collapse.component';
 
 @NgModule({
   imports: [
@@ -16,9 +18,11 @@ import { MenuComponent } from './menu/menu.component';
     FormsModule,
     ReactiveFormsModule,
     StarComponent,
-    MenuComponent
+    MenuComponent,
+    DurationPipe,
+    CollapseComponent
   ],
-  declarations: [StarComponent, MenuComponent],
+  declarations: [StarComponent, MenuComponent, DurationPipe, CollapseComponent],
   providers: [ShoppingCartService]
 })
 export class SharedModule { }
