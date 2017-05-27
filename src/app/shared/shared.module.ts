@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StarComponent } from './star/star.component';
 import {Routes, RouterModule} from '@angular/router';
+import { ShoppingCartService } from "app/shared/shopping-cart-service";
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import {Routes, RouterModule} from '@angular/router';
     ReactiveFormsModule,
     StarComponent
   ],
-  declarations: [StarComponent]
+  declarations: [StarComponent],
+  providers: [ShoppingCartService]
 })
 export class SharedModule { }
