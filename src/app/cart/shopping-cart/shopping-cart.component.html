@@ -1,0 +1,46 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+       <h1>Shopping Cart</h1>
+    </div>
+    
+    <div class='panel-body'>
+
+        <div class='table-responsive'>
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let singleitem of myCart">
+                        
+                        <td>{{singleitem.name}}</td>
+                        <td>${{singleitem.price}}</td>
+                        <td>
+                            <button type="button" class="alert button"(click)="removeCart(singleitem.id)">
+                                Remove Item
+                            </button></td>
+                    </tr>
+                </tbody>
+            </table>
+               
+            <div>
+                <div>Total</div>
+                <div>{{cartTotal | currency:'USD':true}}</div>
+            </div>
+
+            <div>
+                <a class="success btn btn-default" (click)="purchase()">Checkout</a>
+                <a class="btn btn-default" (click)="cancel()">Cancel</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
